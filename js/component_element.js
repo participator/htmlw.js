@@ -109,11 +109,11 @@
                this.children.push({message: 'error added child', child: child});
            }
        },
-       addEvent: function addEvent(trigger, handler) {
-           this.element.addEventListener(trigger, handler);
+       addEvent: function addEvent(type, listener) {
+           this.element.addEventListener(type, listener);
        },
-       removeEvent: function removeEvent(id) {
-           this.element.removeEventListener(id);
+       removeEvent: function removeEvent(type, listener) {
+           this.element.removeEventListener(type, listener);
        },
         /*
         * Append element to given parent element
