@@ -1,16 +1,16 @@
-(function(){
+(function() {
     
     if (!window.components) {
         window.components = {};
     }
     else {
-        throw new Error('components.Element: Name conflict with window.components');
+        throw new Error('components.baseElement: Name conflict with window.components');
     }
 
-    var exports = window.components;
+    const exports = window.components;
 
-    var baseElement = {
-        /*
+    const baseElement = {
+        /**
         * Create the element with the passed in attibutes
         * @param {string} element type to create
         * @param {string|number} id id property
@@ -48,7 +48,7 @@
                 this.addAttributes(attributes);
             }
         },
-        /*
+        /**
         * Adds classes to the element
         * @param {string | string[]} classList string or array of strings to add
         */
@@ -62,7 +62,7 @@
                 }
             }
         },
-        /*
+        /**
         * Remove classes from the element
         * @param {string | {object Array}} classList string or array of strings to remove
         */
@@ -76,16 +76,16 @@
                 }
             }
         },
-        /*
+        /**
         * Add element's attributes to the element
-        * @param {object Object} attributes {name: value} object of attributes to add
+        * @param {object Array} attributes {name: value} object of attributes to add
         */
         addAttributes: function(attributes) {
             for (var attribute in attributes) {
                 this.element.setAttribute(attribute, attributes[attribute]);
             }
         },
-        /*
+        /**
         * Add child element
         * @param {string | {object Element} | {object baseElement}} element to add as an child
         */
@@ -109,13 +109,23 @@
                this.children.push({message: 'error added child', child: child});
            }
        },
+       /**
+        * Add an event to this element
+        * @param string type 
+        * @param {object Function} listener 
+        */
        addEvent: function addEvent(type, listener) {
            this.element.addEventListener(type, listener);
        },
+       /**
+        * Remove an event from this element
+        * @param string type 
+        * @param {object Function} listener 
+        */
        removeEvent: function removeEvent(type, listener) {
            this.element.removeEventListener(type, listener);
        },
-        /*
+        /**
         * Append element to given parent element
         * @param {object ELEMENT} parent 
         */

@@ -4,9 +4,9 @@
         console.warn('%cDev Error: %chtmlw.js components library is not loaded.', 'font-weight:bold', 'font-weight:normal');
     }
 
-    var exports = window.components;
+    const exports = window.components;
 
-    var Span = Object.create(exports.baseElement);
+    const Span = Object.create(exports.baseElement);
 
     Span.create = function create(id, classList, attributes) {
         this.init('span', id, classList, attributes);
